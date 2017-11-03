@@ -14,7 +14,7 @@ app = flask.Flask(__name__)
 def main():
     return flask.Response("Welcome... TO AI ROM")
 
-# ------------------------------ UPLOAD / PROCESSOR
+# ------------------------------ UPLOADER
 
 @app.route('/upload')
 def upload_file():
@@ -25,18 +25,26 @@ def upload_file():
 def uploader():
     if flask.request.method == 'POST':
          f = flask.request.files['file']
-         runid = uuid.uuid1()
-         if not os.path.exists("runs/{}".format(runid.int)):
-             os.makedirs("runs/{}".format(runid.int))
+         runid = uuid.uuid1().int
+         if not os.path.exists("runs/"+str(runid)):
+             os.makedirs("runs/"+str(runid))
+             os.makedirs("runs/"+str(runid)+"/json")
+             os.makedirs("runs/"+str(runid)+"/frames")
+         else:
+             return flask.jsonify({"result" : "failed", "reason" : "RUNID Clash, try again soon"})
+
          f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
+
     return flask.jsonify({"result": "success", "runid": str(runid.int)})
+
+# ------------------------------ COMPUTE
 
 @app.route("/process", methods=['GET'])
 def process():
     # I am the stack.
     runid = flask.request.args.get('runid')
-    airom.video.OpenPose(runid)
-    return flask.jsonify({"result": "done trying at the very least"})
+    airom.video.OpenPose(runid, computedir = "/home/mahasen/lib/openpose")
+    return flask.jsonify({"result": "process launched"})
 
 # ------------------------------ VIDEO / IMAGING
 
@@ -47,7 +55,6 @@ def getframe():
     frame = airom.camera.GetFrameRunID(runid, framenum)
     return flask.Response(frame,
                           mimetype='multipart/x-mixed-replace; boundary=frame')
-
 
 @app.route('/airom/playvideo', methods=['GET'])
 def playvideo():
@@ -67,7 +74,6 @@ def getangle():
     angle = airom.process.GetPoseAngle(runid, framenum)
     return flask.jsonify(angle)
     
-
 # ------------------------------ REPORT GENERATOR
 
 @app.route("/airom/getreport", methods=['GET'])
@@ -76,7 +82,8 @@ def getreport():
     report = flask.request.args.get('report')
     return flask.Response(airom.postprocess.postproc(airom.process.GetAllAngles(runid), report))
 
+# ------------------------------ RUN THE API
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=8080, threaded=True, debug=True)
 
