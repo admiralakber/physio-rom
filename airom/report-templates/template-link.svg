@@ -16,7 +16,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="template.svg">
+   sodipodi:docname="template-embed.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -27,7 +27,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="457.81048"
+     inkscape:cx="298.20638"
      inkscape:cy="319.72483"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -196,11 +196,11 @@
     <image
        sodipodi:absref="/home/prithvi/Repositories/physio-rom/airom/report-templates/filler.jpg"
        xlink:href="filler.jpg"
-       width="125.69982"
-       height="139.12784"
-       preserveAspectRatio="none"
-       id="image4014"
+       y="132.18608"
        x="32.521027"
-       y="132.18608" />
+       id="image4014"
+       preserveAspectRatio="none"
+       height="139.12784"
+       width="125.69982" />
   </g>
 </svg>
