@@ -1,6 +1,7 @@
 import flask
 import werkzeug.utils
 import uuid
+import os
 
 import airom.video
 import airom.camera
@@ -25,6 +26,8 @@ def uploader():
     if flask.request.method == 'POST':
          f = flask.request.files['file']
          runid = uuid.uuid1().int
+         if not os.path.exists("runs/"+runid):
+             os.makedirs("runs/"+runid)
          f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
     return flask.jsonify({"result": "success", "runid": runid})
 
