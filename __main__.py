@@ -73,7 +73,7 @@ def getangle():
     runid = flask.request.args.get('runid')
     framenum = int(flask.request.args.get('frame'))
     angle = airom.process.GetPoseAngle(runid, framenum)
-    return flask.jsonify(angle)
+    return flask.jsonify(airom.romutils.NumpyToList(angle))
     
 # ------------------------------ REPORT GENERATOR
 

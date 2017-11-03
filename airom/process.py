@@ -44,10 +44,19 @@ def GetAllAngles(runid):
     angles = np.array([x["angles"] for x in dataList])
     angles_sign = np.array([x["angles_sign"] for x in dataList])
     confidence = np.array([x["confidence"] for x in dataList])
-
+    v1s = np.array([x["v1"] for x in dataList])
+    v2s = np.array([x["v2"] for x in dataList])
+    posekps = np.array([x["pose_kp"] for x in dataList])
+    
     # Other
     joint_labels = dataList[0]["joint_labels"]
-    return {"joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": confidence}
+    return {"joint_labels": joint_labels,
+            "angles": angles,
+            "angles_sign": angles_sign,
+            "confidence": confidence,
+            "v1s" : v1s,
+            "v2s" : v2s,
+            "pose_kps" : pose_kps}
 
 def GetFrameAngles(posejson, frame = 0):
     # Calculates joint angles, confidence intervals, cross-prodcut sign etc.
@@ -88,10 +97,10 @@ def GetFrameAngles(posejson, frame = 0):
 
     return {"frame": frame,
             "joint_labels": joint_labels,
-            "angles": angles.tolist(),
-            "angles_sign": angles_sign.tolist(),
-            "confidence": pose_kp_joints_confidence.tolist(),
-            "v1": v1.tolist(),
-            "v2": v2.tolist(),
-            "pose_kp": pose_kp.tolist()}
+            "angles": angles,
+            "angles_sign": angles_sign,
+            "confidence": pose_kp_joints_confidence,
+            "v1": v1,
+            "v2": v2,
+            "pose_kp": pose_kp}
 
