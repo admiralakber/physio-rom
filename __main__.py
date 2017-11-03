@@ -3,10 +3,11 @@ import werkzeug.utils
 import uuid
 import os
 
-import airom.video
-import airom.camera
-import airom.process
-import airom.postprocess
+#import airom.video
+#import airom.camera
+#import airom.process
+#import airom.postprocess
+import airom
 
 app = flask.Flask(__name__)
 
@@ -35,7 +36,7 @@ def uploader():
 
          f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
 
-    return flask.jsonify({"result": "success", "runid": str(runid.int)})
+    return flask.jsonify({"result": "success", "runid": str(runid)})
 
 # ------------------------------ COMPUTE
 
@@ -44,7 +45,7 @@ def process():
     # I am the stack.
     runid = flask.request.args.get('runid')
     airom.video.OpenPose(runid, computedir = "/home/mahasen/lib/openpose")
-    return flask.jsonify({"result": "process launched"})
+    return flask.jsonify({"result": "process finished"})
 
 # ------------------------------ VIDEO / IMAGING
 

@@ -1,4 +1,4 @@
-#import .video
-#import .process
-#import .postproc
-
+import airom.video
+import airom.camera
+import airom.process
+import airom.postprocess
