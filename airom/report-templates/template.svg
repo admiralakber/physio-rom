@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="template.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="457.81048"
+     inkscape:cy="319.72483"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-grids="true"
+     inkscape:snap-page="false"
+     inkscape:snap-center="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-to-guides="true"
+     inkscape:pagecheckerboard="true"
+     inkscape:window-width="2560"
+     inkscape:window-height="1440"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3701" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-87)">
+    <circle
+       style="fill:#999999;stroke-width:0.26458332"
+       id="path3705"
+       cx="194.2039"
+       cy="198.04546"
+       r="13.229166" />
+    <circle
+       style="fill:#999999;stroke-width:0.26458332"
+       id="path3705-3"
+       cx="194.2039"
+       cy="163.64963"
+       r="13.229167" />
+    <circle
+       style="fill:#999999;stroke-width:0.26458332"
+       id="path3705-3-6"
+       cx="194.2039"
+       cy="232.44128"
+       r="13.229167" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="91.047714"
+       y="117.35722"
+       id="text3739"><tspan
+         sodipodi:role="line"
+         id="tspan3737"
+         x="91.047714"
+         y="117.35722"
+         style="stroke-width:0.26458332">Template For Test Report</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3741"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,0,87)"><flowRegion
+         id="flowRegion3743"><rect
+           id="rect3745"
+           width="70"
+           height="50"
+           x="760"
+           y="133.70081" /></flowRegion><flowPara
+         id="flowPara3747">Note</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3749"
+       style="font-style:normal;font-weight:normal;font-size:18.66666691px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;"
+       transform="matrix(0.26458333,0,0,0.26458333,-8.9761938,85.423768)"><flowRegion
+         id="flowRegion3751"
+         style="font-size:18.66666691px;"><rect
+           id="rect3753"
+           width="230"
+           height="70"
+           x="750"
+           y="123.70081"
+           style="font-size:18.66666691px;" /></flowRegion><flowPara
+         id="flowPara3757" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="211.73221"
+       y="155.6422"
+       id="text3771"><tspan
+         sodipodi:role="line"
+         id="tspan3769"
+         x="211.73221"
+         y="155.6422"
+         style="font-size:4.93888903px;stroke-width:0.26458332">MetricLabel1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="211.7515"
+       y="190.03802"
+       id="text3771-7"><tspan
+         sodipodi:role="line"
+         x="211.7515"
+         y="190.03802"
+         style="font-size:4.93888903px;stroke-width:0.26458332"
+         id="tspan3890">MetricLabel2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="212.83464"
+       y="224.43385"
+       id="text3771-7-3"><tspan
+         sodipodi:role="line"
+         x="212.83464"
+         y="224.43385"
+         style="font-size:4.93888903px;stroke-width:0.26458332"
+         id="tspan3791-5">MetricLabel3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="184.93523"
+       y="165.49104"
+       id="text3771-1"><tspan
+         sodipodi:role="line"
+         id="tspan3769-2"
+         x="184.93523"
+         y="165.49104"
+         style="font-size:4.93888903px;stroke-width:0.26458332">Metric1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="185.2527"
+       y="199.35771"
+       id="text3771-1-7"><tspan
+         sodipodi:role="line"
+         id="tspan3769-2-0"
+         x="185.2527"
+         y="199.35771"
+         style="font-size:4.93888903px;stroke-width:0.26458332">Metric2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="185.99355"
+       y="233.95905"
+       id="text3771-1-9"><tspan
+         sodipodi:role="line"
+         id="tspan3769-2-3"
+         x="185.99355"
+         y="233.95905"
+         style="font-size:4.93888903px;stroke-width:0.26458332">Metric3</tspan></text>
+    <image
+       sodipodi:absref="/home/prithvi/Repositories/physio-rom/airom/report-templates/filler.jpg"
+       xlink:href="filler.jpg"
+       width="125.69982"
+       height="139.12784"
+       preserveAspectRatio="none"
+       id="image4014"
+       x="32.521027"
+       y="132.18608" />
+  </g>
+</svg>
