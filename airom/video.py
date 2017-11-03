@@ -9,7 +9,7 @@ def OpenPose(runid, computedir="openpose"):
     outputvid = rundir+'outputvideo.avi'
 
     # transcode
-    subprocess.run(["ffmpeg", "-y", "-i", inputvid, transcodedvid])
+    subprocess.run(["ffmpeg", "-y", "-i", inputvid, "-qscale:v", "2", transcodedvid])
 
     # openpose command
     openpose = ["./build/examples/openpose/openpose.bin",

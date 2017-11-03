@@ -34,7 +34,7 @@ def getJointROM_frames(data, joint_ind, num_frames):
 
 
 # ------------------------------ POSTPROCESS
-def clenaFloats(x): return str(round(x,1))
+def cleanFloats(x): return str(round(x,1))
 
 def testing(data):
     with open("airom/report-templates/template-link.svg") as f:   

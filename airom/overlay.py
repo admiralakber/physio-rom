@@ -6,13 +6,20 @@ from PIL import Image
 import numpy as np
 from matplotlib.patches import Arc
 
+import airom.camera
+
+def OverlayAngles(runid, joint):
+    frames = airom.camera.LoadFrames(runid)
+    #fig, ax = plt.
+
+
 def overlayAngle(data,joint_ind,im_in,im_out):
     # data : output from getAnglesInDir
     # joint_ind : index to joint 
     # im_in : filename to process
     # im_out : file out
     # Load image
-    im = np.array(Image.open(imname), dtype=np.uint8)
+    im = np.array(Image.open(im_in), dtype=np.uint8)
 
     # Create figure and axe
     fig,ax = plt.subplots(1)
