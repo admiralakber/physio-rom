@@ -1,4 +1,4 @@
-import romutil
+#import utils
 # Given an image and a range of motion test this will generate a report.
 
 
@@ -12,13 +12,13 @@ def elbowJointROM(data):
         strn = f.read()
     (maxVal, minVal, confVal) = (1, 1, 1)
     # calculate range of motion and linspac  set (maxVal, minVal, confVal)
-    strn.replace("TemplateTitle", "Elbow Joint Range of Motion")
-    strn.replace("metricLabel1", "Maximum Range of Motion")
-    strn.replace("metricLabel2", "Minimum Range of Motion")
-    strn.replace("metricLabel3", "Confidence")
-    strn.replace("metric1", string(maxVal))
-    strn.replace("metric2", string(minVal))
-    strn.replace("metric3", string(confVal))
+    strn = strn.replace("TemplateTitle", "Elbow Joint Range of Motion")
+    strn = strn.replace("MetricLabel1", "Maximum Range of Motion")
+    strn = strn.replace("MetricLabel2", "Minimum Range of Motion")
+    strn = strn.replace("MetricLabel3", "Confidence")
+    strn = strn.replace("Metric1", str(maxVal))
+    strn = strn.replace("Metric2", str(minVal))
+    strn = strn.replace("Metric3", str(confVal))
     # embed stages of the motion
     return strn
 

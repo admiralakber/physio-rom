@@ -1,5 +1,5 @@
 import flask
-import airom.postproc
+import airom.postprocess
 import airom.camera
 import cv2
 
@@ -17,32 +17,30 @@ def uploadvideo():
 @app.route("/airom/getframe", methods=['GET'])
 def getframe():
     runid = flask.request.args.get('runid')
-    return flask.Response(runid)
+    framenum = int(flask.request.args.get('frame'))
+    frame = airom.camera.GetFrameRunID(runid, framenum)
+    return flask.Response(frame,
+                          mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route("/airom/getangle", methods=['GET'])
 def getangle():
     runid = flask.request.args.get('runid')
     pass
 
-@app.route('/airom/getvideo', methods=['GET'])
-def getvideo():
-    runid = flask.request.args.get('runid')
-    camera = airom.camera.Camera(runid)
-    return flask.Response(airom.camera.YieldCamera(camera),
-                          mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
 @app.route('/airom/playvideo', methods=['GET'])
-def getvideo():
+def payvideo():
     runid = flask.request.args.get('runid')
-    camera = airom.camera.PlayRunID(runid)
+    fps = flask.request.args.get('fps')
+    camera = airom.camera.PlayRunID(runid, int(fps))
     return flask.Response(camera,
                           mimetype='multipart/x-mixed-replace; boundary=frame')
     
 
-@app.route("/airom/getreport")
+@app.route("/airom/getreport", methods=['GET'])
 def getreport():
-    return flask.Response(airom.postproc.postproc("","", 0))
+    runid = flask.request.args.get('runid')
+    report = flask.request.args.get('report')
+    return flask.Response(airom.postprocess.postproc("", report))
 
 
 if __name__ == '__main__':
