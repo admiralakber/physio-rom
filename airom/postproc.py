@@ -2,7 +2,7 @@
 
 
 def testing(folder_img, folder_json):
-    with open("airom/report-templates/template.svg") as f:   #("report-templates/template.svg", "rw"):
+    with open("airom/report-templates/template-link.svg") as f:   #("report-templates/template.svg", "rw"):
         strn = f.read()
     return strn
 
