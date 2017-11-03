@@ -14,3 +14,6 @@ requirements_freeze.txt
 # Setuptools
 /dist/
 /*.egg-info
+
+# images
+*.jpg
