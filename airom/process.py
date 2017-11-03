@@ -90,5 +90,8 @@ def GetFrameAngles(posejson, frame = 0):
             "joint_labels": joint_labels,
             "angles": angles.tolist(),
             "angles_sign": angles_sign.tolist(),
-            "confidence": pose_kp_joints_confidence.tolist()}
+            "confidence": pose_kp_joints_confidence.tolist(),
+            "v1": v1.tolist(),
+            "v2": v2.tolist(),
+            "pose_kp": pose_kp.tolist()}
 

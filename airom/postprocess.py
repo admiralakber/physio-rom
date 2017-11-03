@@ -34,6 +34,7 @@ def getJointROM_frames(data, joint_ind, num_frames):
 
 
 # ------------------------------ POSTPROCESS
+def clenaFloats(x): return str(round(x,1))
 
 def testing(data):
     with open("airom/report-templates/template-link.svg") as f:   
@@ -48,9 +49,9 @@ def elbowJointROM(data):
     strn = strn.replace("MetricLabel1", "Minimum Range of Motion")
     strn = strn.replace("MetricLabel2", "Maximum Range of Motion")
     strn = strn.replace("MetricLabel3", "Confidence")
-    strn = strn.replace("Metric1", str(processed['angles'][0]))
-    strn = strn.replace("Metric2", str(processed['angles'][1]))
-    strn = strn.replace("Metric3", str(processed['angles'][2]))
+    strn = strn.replace("Metric1", cleanFloats(processed['angles'][0]))
+    strn = strn.replace("Metric2", cleanFloats(processed['angles'][1]))
+    strn = strn.replace("Metric3", cleanFloats(processed['angles'][2]))
     # embed stages of the motion
     return strn
 
