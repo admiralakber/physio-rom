@@ -1,9 +1,9 @@
 import numpy as np
 
-def getJointROM(data, jjoint_ind):
+def getJointROM(data, joint_ind):
     # Get extremal values of a given joint_ind
     # data : output from getAnglesInDir
-    # joint_ind : index to joint 
+    # joint_ind : index to joint. In order: 'Right elbow','Left elbow','Right Shoulder','Left Shoulder','Right Knee','Left Knee','Right Hip','Left Hip'
     return {'min': np.min(data['angles'][:,joint_ind]),'max':np.max(data['angles'][:,joint_ind])}
 
 def getJointROM_frames(data, joint_ind, num_frames):
@@ -21,9 +21,11 @@ def getJointROM_frames(data, joint_ind, num_frames):
     # Get list of angles closest to ideal and their frame indices
     frame_angles_inds = np.argmin(np.abs(np.subtract(frame_angles_ideal.reshape(len(frame_angles_ideal),1),data["angles"][joint_ind])),axis=1)
     frame_angles = data["angles"][joint_ind][frame_angles_inds]
+    frame_angles_sign = data["angles_sign"][joint_ind][frame_angles_inds]
+    frame_angles_conf = data["confidence"][joint_ind][frame_angles_inds]
 
-    # Get list of images
-    image_list =  ['%012d_rendered.jpg' % x for x in frame_angles_inds]
 
-    return {'frame_angles_ideal':frame_angles,'angles_frames':angles_frames,'frame_angles_inds':frame_angles_inds,'image_list':image_list}
+    return {'angles_ideal':frame_angles_ideal,'angles':frame_angles,
+            'angles_frame_inds':frame_angles_inds,'angles_sign':frame_angles_sign,
+            'angles_conf':frame_angles_conf}
 
