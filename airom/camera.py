@@ -12,9 +12,8 @@ def GetFrameRunID(runid, frame = 0):
     frames = LoadFrames(runid)
     try:
         frame = frames[frame]
-    except:
+    except IndexError:
         frame = frames[-1]
-        
     yield (b'--frame\r\n'
            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 

@@ -1,13 +1,17 @@
 import flask
 from werkzeug.utils import secure_filename
-import airom.postprocess
+
 import airom.camera
+import airom.process
+import airom.postprocess
 
 app = flask.Flask(__name__)
 
 @app.route("/")
 def main():
     return flask.Response("Welcome... TO AI ROM")
+
+# ------------------------------ UPLOAD / PROCESSOR
 
 @app.route('/upload')
 def upload_file():
@@ -26,27 +30,40 @@ def uploadvideo():
     # need the full stack dev
     pass
 
+# ------------------------------ VIDEO / IMAGING
+
 @app.route("/airom/getframe", methods=['GET'])
 def getframe():
-    runid = flask.request.args.get('runid')
+    runid = int(flask.request.args.get('runid'))
     framenum = int(flask.request.args.get('frame'))
     frame = airom.camera.GetFrameRunID(runid, framenum)
     return flask.Response(frame,
                           mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route("/airom/getangle", methods=['GET'])
-def getangle():
-    runid = flask.request.args.get('runid')
-    pass
 
 @app.route('/airom/playvideo', methods=['GET'])
 def payvideo():
-    runid = flask.request.args.get('runid')
-    fps = flask.request.args.get('fps')
-    camera = airom.camera.PlayRunID(runid, int(fps))
+    runid = int(flask.request.args.get('runid'))
+    fps = int(flask.request.args.get('fps'))
+    camera = airom.camera.PlayRunID(runid, fps)
     return flask.Response(camera,
                           mimetype='multipart/x-mixed-replace; boundary=frame')
     
+
+# ------------------------------ COMPUTING ANGLES
+
+@app.route("/airom/getangle", methods=['GET'])
+def getangle():
+    runid = int(flask.request.args.get('runid'))
+    framenum = int(flask.request.args.get('frame'))
+    angle = airom.process.GetPoseAngle(runid, framenum)
+    return flask.jsonify(angle)
+    
+
+
+
+# ------------------------------ REPORT GENERATOR
+
 
 @app.route("/airom/getreport", methods=['GET'])
 def getreport():

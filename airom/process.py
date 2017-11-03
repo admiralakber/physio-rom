@@ -4,16 +4,15 @@ import json,glob,os
 def LoadPoseJSON(runid):
     posejson = glob.glob("runs/{}/json/*.json".format(runid))
     posejson = sorted(posejson, key = lambda x: int(x.split("/")[-1].split("_")[1]))
-    posejson = list(map(lambda x: json.load(open(x))))
+    posejson = list(map(lambda x: json.load(open(x)), posejson))
     return posejson
 
 def GetPoseAngle(runid, frame = 0):
     posejson = LoadPoseJSON(runid)
-    frame = posejson[0]
     try:
-        return GetAngles(frame)
-    except:
-        return GetAngles(len(posejson)-1)
+        return GetAngles(posejson, frame)
+    except IndexError:
+        return GetAngles(posejson, -1)
 
 
 def PlayPoseAngles(runid, fps):
@@ -49,7 +48,7 @@ def getAnglesInDir(dirName):
     joint_labels = dataList[0]["joint_labels"]
     return {"fileList":fileList, "numFiles":len(fileList), "joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": confidence}
 
-def GetAngles(frame):
+def GetAngles(posejson, frame = 0):
     # Calculates joint angles, confidence intervals, cross-prodcut sign etc.
 
     # Load JSON
@@ -59,7 +58,7 @@ def GetAngles(frame):
     ## AQEEL -- Now handled by GetPoseAngle
 
     # Get first person
-    data = frame['people'][0]
+    data = posejson[frame]['people'][0]
 
     # Get pose keypoints and reshape
     pose_kp_raw = data['pose_keypoints']
@@ -86,5 +85,9 @@ def GetAngles(frame):
     # Compute cross product sign
     angles_sign = np.sign(np.subtract(np.multiply(v1[:,0],v2[:,1]),np.multiply(v1[:,1],v2[:,0])))
 
-    return {"frame": frame, "joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": pose_kp_joints_confidence}
+    return {"frame": frame,
+            "joint_labels": joint_labels,
+            "angles": angles.tolist(),
+            "angles_sign": angles_sign.tolist(),
+            "confidence": pose_kp_joints_confidence.tolist()}
 
