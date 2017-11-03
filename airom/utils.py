@@ -23,7 +23,7 @@ def getJointROM_frames(data, joint_ind, num_frames):
     frame_angles = data["angles"][joint_ind][frame_angles_inds]
 
     # Get list of images
-    image_list =  ['%012d_rendered.png' % x for x in frame_angles_inds]
+    image_list =  ['%012d_rendered.jpg' % x for x in frame_angles_inds]
 
     return {'frame_angles_ideal':frame_angles,'angles_frames':angles_frames,'frame_angles_inds':frame_angles_inds,'image_list':image_list}
 

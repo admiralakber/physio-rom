@@ -4,7 +4,7 @@ import glob
 
 def LoadFrames(runid):
     frames = glob.glob("runs/{}/frames/*.jpg".format(runid))
-    frames = sorted(frames, key = lambda x: int(x.split("/")[-1][-27:15]))
+    frames = sorted(frames, key = lambda x: int(x.split("/")[-1].split("_")[1]))
     frames = list(map(lambda x: open(x, 'rb').read(), frames))
     return frames
 
