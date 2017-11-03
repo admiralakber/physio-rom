@@ -35,7 +35,7 @@ def uploader():
 
          f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
 
-    return flask.jsonify({"result": "success", "runid": str(runid.int)})
+    return flask.jsonify({"result": "success", "runid": str(runid)})
 
 # ------------------------------ COMPUTE
 

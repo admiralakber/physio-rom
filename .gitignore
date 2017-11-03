@@ -18,3 +18,7 @@ requirements_freeze.txt
 # images / videos
 *.jpg
 *.avi
+
+# runs folders
+runs/*
+!runs/0
