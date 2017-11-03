@@ -7,9 +7,9 @@ def OpenPose(runid):
     outputvid = rundir+"outputvideo.avi"
 
     # first transcode
-    subprocess.call(["ffmpeg", "-i", inputvid, transcodedvid])
+    subprocess.call(["ffmpeg", "-i", "-y", inputvid, transcodedvid])
 
-    subprocess.call(["../openpose/build/examples/openpose/openpose.bin",
+    subprocess.call(["openpose/build/examples/openpose/openpose.bin",
                      "--no-display",
                      "--video " + transcodedvid,
                      "--write_video " + outputvid,
