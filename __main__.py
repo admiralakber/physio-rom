@@ -1,6 +1,8 @@
 import flask
-from werkzeug.utils import secure_filename
+import werkzeug.utils
+import uuid
 
+import airom.video
 import airom.camera
 import airom.process
 import airom.postprocess
@@ -22,19 +24,22 @@ def upload_file():
 def uploader():
     if flask.request.method == 'POST':
          f = flask.request.files['file']
-         f.save('runs/'+secure_filename(f.filename))
-    return "Upload Successful"
+         runid = uuid.uuid1().int
+         f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
+    return flask.jsonify({"result": "success", "runid": runid})
 
-@app.route("/process")
-def uploadvideo():
-    # need the full stack dev
-    pass
+@app.route("/process", methods=['GET'])
+def process():
+    # I am the stack.
+    runid = flask.request.args.get('runid')
+    airom.video.OpenPose(runid)
+    return flask.jsonify({"result": "done trying at the very least"})
 
 # ------------------------------ VIDEO / IMAGING
 
 @app.route("/airom/getframe", methods=['GET'])
 def getframe():
-    runid = int(flask.request.args.get('runid'))
+    runid = flask.request.args.get('runid')
     framenum = int(flask.request.args.get('frame'))
     frame = airom.camera.GetFrameRunID(runid, framenum)
     return flask.Response(frame,
@@ -42,8 +47,8 @@ def getframe():
 
 
 @app.route('/airom/playvideo', methods=['GET'])
-def payvideo():
-    runid = int(flask.request.args.get('runid'))
+def playvideo():
+    runid = flask.request.args.get('runid')
     fps = int(flask.request.args.get('fps'))
     camera = airom.camera.PlayRunID(runid, fps)
     return flask.Response(camera,
@@ -54,22 +59,19 @@ def payvideo():
 
 @app.route("/airom/getangle", methods=['GET'])
 def getangle():
-    runid = int(flask.request.args.get('runid'))
+    runid = flask.request.args.get('runid')
     framenum = int(flask.request.args.get('frame'))
     angle = airom.process.GetPoseAngle(runid, framenum)
     return flask.jsonify(angle)
     
 
-
-
 # ------------------------------ REPORT GENERATOR
-
 
 @app.route("/airom/getreport", methods=['GET'])
 def getreport():
     runid = flask.request.args.get('runid')
     report = flask.request.args.get('report')
-    return flask.Response(airom.postprocess.postproc("", report))
+    return flask.Response(airom.postprocess.postproc(airom.process.GetAllAngles(runid), report))
 
 
 if __name__ == '__main__':

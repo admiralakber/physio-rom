@@ -1,9 +1,21 @@
 import subprocess
 
-def VideoToJSON(infile, runid, options=""):
+def OpenPose(runid):
+    rundir = "runs/{}/".format(runid)
+    inputvid = rundir+"inputvideo.avi"
+    transcodedvid = rundir+"transcodedvideo.avi"
+    outputvid = rundir+"outputvideo.avi"
+
+    # first transcode
+    subprocess.call(["ffmpeg", "-i", inputvid, transcodedvid])
+
     subprocess.call(["../openpose/build/examples/openpose/openpose.bin",
-                     "--video "+infile, "--no-display",
-                     "--write_video runs/{}/video.avi".format(runid),
-                     "--write_images runs/{}/frames/".format(runid),
-                     "--output runs/{}/json/".format(runid)])
+                     "--no-display",
+                     "--video " + transcodedvid,
+                     "--write_video " + outputvid,
+                     "--write_images " + rundir + "/frames",
+                     "--write_images_format \"jpg\"",
+                     "--output " + rundir + "/json"])
+
+                     
 

@@ -10,10 +10,9 @@ def LoadPoseJSON(runid):
 def GetPoseAngle(runid, frame = 0):
     posejson = LoadPoseJSON(runid)
     try:
-        return GetAngles(posejson, frame)
+        return GetFrameAngles(posejson, frame)
     except IndexError:
-        return GetAngles(posejson, -1)
-
+        return GetFrameAngles(posejson, -1)
 
 def PlayPoseAngles(runid, fps):
     posejson = LoadPoseJSON(runid)
@@ -23,21 +22,23 @@ def PlayPoseAngles(runid, fps):
             yield GetAngles(frame)
 
             
-def getAnglesInDir(dirName):
+def GetAllAngles(runid):
     # Processes all the JSON files in a directory by calculating angles, etc.
     # Wraps getAngles
 
     # Get list of files
-    fileList = []
-    for file in os.listdir(dirName):
-        if file.endswith(".json"):
-            fileList.append(file)
+    #fileList = []
+    #for file in os.listdir(dirName):
+    #    if file.endswith(".json"):
+    #        fileList.append(file)
 
     # Sort file list
-    fileList = sorted(fileList,key=lambda x: int(x[-27:-15]))
+    #fileList = sorted(fileList,key=lambda x: int(x[-27:-15]))
 
+    posejson = LoadPoseJSON(runid)
+    
     # Get angles, etc. for all files
-    dataList   = [getAngles(dirName+x) for x in fileList]
+    dataList   = [GetFrameAngles(posejson, frame) for frame, i in enumerate(posejson)]
 
     # Concatenate arrays
     angles = np.array([x["angles"] for x in dataList])
@@ -46,9 +47,9 @@ def getAnglesInDir(dirName):
 
     # Other
     joint_labels = dataList[0]["joint_labels"]
-    return {"fileList":fileList, "numFiles":len(fileList), "joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": confidence}
+    return {"joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": confidence}
 
-def GetAngles(posejson, frame = 0):
+def GetFrameAngles(posejson, frame = 0):
     # Calculates joint angles, confidence intervals, cross-prodcut sign etc.
 
     # Load JSON

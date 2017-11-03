@@ -1,7 +1,6 @@
 import time
 import glob
 
-
 def LoadFrames(runid):
     frames = glob.glob("runs/{}/frames/*.jpg".format(runid))
     frames = sorted(frames, key = lambda x: int(x.split("/")[-1].split("_")[1]))
