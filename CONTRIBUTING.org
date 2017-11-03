@@ -1,0 +1,111 @@
+#+TITLE: Contributing guide
+
+* Introduction
+
+Thanks for considering to contribute! There are many ways you can
+contribute to the project: updating documentation, reporting bugs, or
+adding new features.
+
+* Development
+
+1. Fork / Branch.
+
+2. Write your [[https://docs.pytest.org/en/latest/][pytest]] for your unit first.
+
+3. Implement in Python 3.
+  + =import this=
+  + Use meaningful names.
+  + Use docstrings.
+  + Comment code well, include your name / time / note about changes.
+
+4. Pull / Merge request.
+
+** Source tree
+
+We use the following abstract structure.
+
+#+BEGIN_SRC 
+- /
+- __main__.py
+- some-other-entry.py
+- setup.py
+- Makefile
+- requirements.txt
+--   project/
+---    unit.py
+---    __init__.py
+--   tests/
+---    unit-test.py
+#+END_SRC
+
+
+With this structure, by running =import project=, the file
+=__init__.py= is run.
+
+As suggested, =__main__.py= should be the main entry point to the
+program. Other entry points are okay and should be installed via =pip=
+by adding it to =setup.py=. However, consider them for power users.
+
+Make sure any python libraries you use are added to
+=requirements.txt=.
+
+*** The =Makefile= is a handy thing
+
++ =make env= 
+  + Runs =virtualenv env=
+
++ =make getreqs=
+  + Runs =pip install -r requirements.txt=
+
++ =make test= 
+  + Runs =pytest tests=
+
++ =make freeze= 
+  + Runs =pip freeze > requirements_freeze.txt=
+  
+* Bugs
+
+Bugs are bad. To keep the debugging process smooth and fast, we need
+as much information as possible.
+
+** Bug report
+
+Please include the following:
+
+1. The version (or commit id) of software you're using
+2. The error message and log
+3. What you were trying to do
+4. A piece of code that allows reproduction of the bug
+5. Your operating system
+
+** Fixing a bug
+
+Suppose you find a bug and want to fix it, make sure a bug report
+exists first. If not, create one and clearly state what you believe is
+going wrong, then follow the development guideline above. 
+
+When making a pull / merge request include the following information:
+
+1. Provide a link to the bug report
+2. Ensure what you thought was going wrong was in the bug report.
+3. Explain briefly how you fixed it.
+4. Explain possible side-effects of the patch (if any)
+
+* Features and improvements
+
+Features are exciting and I'm certain you have great ideas! Prefered
+features are abstract ones rather problem specific ones. Improvements
+that make existing features cover more problems and aren't damaging to
+the user experience are certainly welcome. 
+
+Please feel free to make merge / pull request with new features if you
+believe you have a feature or improvement. Be sure to include the
+following with your request:
+
+1. Name of feature you're adding / improving
+2. Usage example code of the new feature
+3. What you believe it improves.
+4. Possible gotchas / side-effects
+
+If you want to make a major feature / improvement, please send an
+email to Aqeel Akber <aqeel.akber@gmail.com>.

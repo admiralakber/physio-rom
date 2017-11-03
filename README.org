@@ -1,0 +1,34 @@
+#+TITLE: Physio-ROM: Computer vision, AI Range of Motion Reports
+
+* What is Physio ROM
+
+* Installation
+
+* Usage
+
+* Third-party dependencies
+
+Third-party dependencies that have been used or modified for this
+project that have their own software licence include:
+
+| Software | Copyright | Licence | Link | Use            |
+| openpose | -         | LGPL    | -    | Pose detection |
+|          |           |         |      |                |
+
+* Copyright and Licence
+Copyright (C) 2017 Aqeel Akber and collaborators - All Rights Reserved
+
+You should have received a copy of the [[LICENCE]] with this file. If not,
+please write to: Aqeel Akber <aqeel.akber@gmail.com>. This licence
+applies to all files held under the copyright of this project
+only and not third-party dependencies.
+
+If you beleieve that anything in this project infringes your
+copyright, please contact us with your information and a detailed
+description of your intellectual property, including the the specific
+place in this project where you believe your intellectual property is
+being infringed.
+
+* Contributing ♥
+
+Those interested, see [[CONTRIBUTING.org][CONTRIBUTING]] for guidelines.

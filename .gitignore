@@ -1,0 +1,16 @@
+# Text editor stuff
+*.bak
+*~
+\#*\#
+.\#*
+
+# python byte code
+*.pyc
+
+# virtual environment
+env/
+requirements_freeze.txt
+
+# Setuptools
+/dist/
+/*.egg-info
