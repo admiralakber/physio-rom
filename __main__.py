@@ -1,4 +1,5 @@
 import flask
+from werkzeug.utils import secure_filename
 import airom.postprocess
 import airom.camera
 
@@ -7,6 +8,18 @@ app = flask.Flask(__name__)
 @app.route("/")
 def main():
     return flask.Response("Welcome... TO AI ROM")
+
+@app.route('/upload')
+def upload_file():
+    return flask.render_template('upload.html')
+
+
+@app.route('/uploader', methods=['GET', 'POST'])
+def uploader():
+    if flask.request.method == 'POST':
+         f = flask.request.files['file']
+         f.save('runs/'+secure_filename(f.filename))
+    return "Upload Successful"
 
 @app.route("/process")
 def uploadvideo():

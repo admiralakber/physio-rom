@@ -1,4 +1,4 @@
-#import utils
+import utils
 # Given an image and a range of motion test this will generate a report.
 
 
@@ -10,7 +10,7 @@ def testing(data):
 def elbowJointROM(data):
     with open("airom/report-templates/template-embed.svg") as f:   
         strn = f.read()
-    (maxVal, minVal, confVal) = (1, 1, 1)
+    getJointROM_frames(data, 0, 3)
     # calculate range of motion and linspac  set (maxVal, minVal, confVal)
     strn = strn.replace("TemplateTitle", "Elbow Joint Range of Motion")
     strn = strn.replace("MetricLabel1", "Maximum Range of Motion")
