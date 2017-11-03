@@ -8,7 +8,6 @@ def LoadFrames(runid):
     frames = list(map(lambda x: open(x, 'rb').read(), frames))
     return frames
 
-    
 def GetFrameRunID(runid, frame = 0):
     frames = LoadFrames(runid)
     try:

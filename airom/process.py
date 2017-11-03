@@ -1,6 +1,29 @@
 import numpy as np
 import json,glob,os
 
+def LoadPoseJSON(runid):
+    posejson = glob.glob("runs/{}/json/*.json".format(runid))
+    posejson = sorted(posejson, key = lambda x: int(x.split("/")[-1].split("_")[1]))
+    posejson = list(map(lambda x: json.load(open(x))))
+    return posejson
+
+def GetPoseAngle(runid, frame = 0):
+    posejson = LoadPoseJSON(runid)
+    frame = posejson[0]
+    try:
+        return GetAngles(frame)
+    except:
+        return GetAngles(len(posejson)-1)
+
+
+def PlayPoseAngles(runid, fps):
+    posejson = LoadPoseJSON(runid)
+    while True:
+        for frame in posejson:
+            time.sleep(1.0/fps)
+            yield GetAngles(frame)
+
+            
 def getAnglesInDir(dirName):
     # Processes all the JSON files in a directory by calculating angles, etc.
     # Wraps getAngles
@@ -26,15 +49,17 @@ def getAnglesInDir(dirName):
     joint_labels = dataList[0]["joint_labels"]
     return {"fileList":fileList, "numFiles":len(fileList), "joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": confidence}
 
-def getAngles(fname):
+def GetAngles(frame):
     # Calculates joint angles, confidence intervals, cross-prodcut sign etc.
 
     # Load JSON
-    with open(fname) as json_data:
-        data_all = json.load(json_data)
+    #with open(fname) as json_data:
+    #    data_all = json.load(json_data)
+
+    ## AQEEL -- Now handled by GetPoseAngle
 
     # Get first person
-    data = data_all['people'][0]
+    data = frame['people'][0]
 
     # Get pose keypoints and reshape
     pose_kp_raw = data['pose_keypoints']
@@ -61,5 +86,5 @@ def getAngles(fname):
     # Compute cross product sign
     angles_sign = np.sign(np.subtract(np.multiply(v1[:,0],v2[:,1]),np.multiply(v1[:,1],v2[:,0])))
 
-    return {"joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": pose_kp_joints_confidence}
+    return {"frame": frame, "joint_labels": joint_labels, "angles": angles, "angles_sign": angles_sign, "confidence": pose_kp_joints_confidence}
 
