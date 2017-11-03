@@ -1,4 +1,4 @@
-import rom-util
+import romutil
 # Given an image and a range of motion test this will generate a report.
 
 
@@ -7,17 +7,24 @@ def testing(data):
         strn = f.read()
     return strn
 
-def shoulder(data):
+def elbowJointROM(data):
     with open("airom/report-templates/template-embed.svg") as f:   
         strn = f.read()
-    # calculate range of motion and linspace
+    (maxVal, minVal, confVal) = (1, 1, 1)
+    # calculate range of motion and linspac  set (maxVal, minVal, confVal)
+    strn.replace("TemplateTitle", "Elbow Joint Range of Motion")
+    strn.replace("metricLabel1", "Maximum Range of Motion")
+    strn.replace("metricLabel2", "Minimum Range of Motion")
+    strn.replace("metricLabel3", "Confidence")
+    strn.replace("metric1", string(maxVal))
+    strn.replace("metric2", string(minVal))
+    strn.replace("metric3", string(confVal))
     # embed stages of the motion
-    # find and replace the min max and confidence
     return strn
 
 options = {
         0: testing,
-        1: shoulder
+        1: elbowJointROM 
         }
 
 def postproc(data, romt):
