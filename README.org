@@ -11,10 +11,10 @@
 Third-party dependencies that have been used or modified for this
 project that have their own software licence include:
 
-| Software | Copyright | Licence | Link | Use               |
-| openpose | -         | LGPL    | -    | Pose detection    |
-| numpy    | -         | BSD     | -    | Quicker searching |
-|          |           |         |      |                   |
+| Software | Copyright | Licence | Link | Use              |
+| openpose | -         | LGPL    | -    | Pose detection   |
+| numpy    | -         | BSD     | -    | Faster searching |
+|          |           |         |      |                  |
 
 * Copyright and Licence
 Copyright (C) 2017 Aqeel Akber and collaborators - All Rights Reserved
