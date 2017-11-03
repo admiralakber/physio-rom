@@ -26,8 +26,10 @@ def uploader():
     if flask.request.method == 'POST':
          f = flask.request.files['file']
          runid = uuid.uuid1().int
-         if not os.path.exists("runs/"+runid):
-             os.makedirs("runs/"+runid)
+         if not os.path.exists("runs/"+str(runid)):
+             os.makedirs("runs/"+str(runid))
+             os.makedirs("runs/"+str(runid)+"/json")
+             os.makedirs("runs/"+str(runid)+"/frames")
          f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
     return flask.jsonify({"result": "success", "runid": runid})
 
