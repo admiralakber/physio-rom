@@ -24,8 +24,11 @@ def elbowJointROM(data):
 
 options = {
         0: testing,
-        1: elbowJointROM 
+        1: elbowJointROM
         }
+
+options["test"] = testing
+options["elbow"] = elbowJointROM
 
 def postproc(data, romt):
     # options = global dictionary

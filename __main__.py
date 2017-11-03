@@ -1,7 +1,6 @@
 import flask
 import airom.postprocess
 import airom.camera
-import cv2
 
 app = flask.Flask(__name__)
 
