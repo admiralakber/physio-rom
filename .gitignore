@@ -15,5 +15,6 @@ requirements_freeze.txt
 /dist/
 /*.egg-info
 
-# images
+# images / videos
 *.jpg
+*.avi
