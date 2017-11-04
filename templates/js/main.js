@@ -56,11 +56,9 @@ var recordedVideo = document.querySelector('video#recorded');
 var recordButton = document.querySelector('button#record');
 var playButton = document.querySelector('button#play');
 var downloadButton = document.querySelector('button#download');
-var uploadButton = document.querySelector('button#upload');
 recordButton.onclick = toggleRecording;
 playButton.onclick = play;
 downloadButton.onclick = download;
-uploadButton.onclick = upload;
 
 // window.isSecureContext could be used for Chrome
 var isSecureOrigin = location.protocol === 'https:' ||
@@ -138,7 +136,6 @@ function toggleRecording() {
     recordButton.textContent = 'Start Recording';
     playButton.disabled = false;
     downloadButton.disabled = false;
-    uploadButton.disabled = false;
   }
 }
 
@@ -170,7 +167,6 @@ function startRecording() {
   recordButton.textContent = 'Stop Recording';
   playButton.disabled = true;
   downloadButton.disabled = true;
-  uploadButton.disabled = true;
   mediaRecorder.onstop = handleStop;
   mediaRecorder.ondataavailable = handleDataAvailable;
   mediaRecorder.start(10); // collect 10ms of data
@@ -203,30 +199,3 @@ function download() {
   }, 100);
 }
 
-function upload() {
-  var blob = new Blob(recordedBlobs, {type: 'video/webm'});
-  var fd = new FormData();
-  fd.append('fname', 'test.webm');
-  fd.append('data', blob);
-
-  for (var pair of fd.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]); 
-  }
-
-  var oReq = new XMLHttpRequest();
-  oReq.open("POST", '/uploader', true);
-  oReq.onload = function (oEvent) {
-    // Uploaded.
-    console.log("onload function");
-    console.log(this.responseText);
-  };
-
-  oReq.onreadystatechange = function() {//Call a function when the state changes.
-    console.log("changing state");
-      if(oReq.readyState == 4 && oReq.status == 200) {
-          alert(oReq.responseText);
-      }
-      alert(oReq.responseText);
-  }
-  oReq.send(fd);
-}
