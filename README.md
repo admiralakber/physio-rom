@@ -10,6 +10,9 @@ This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
 a stroke, or an accident.
 
+The project includes a fully-featured cloud-based API which wraps state-of-the-art 
+real-time keypoint dectection methods into an accessible and open-source platform.
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=6p6oaIISKdM
 " target="_blank"><img src="http://img.youtube.com/vi/6p6oaIISKdM/0.jpg" 
 alt="It Waves Back!" width="480" height="360" border="10" /></a>
