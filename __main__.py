@@ -26,10 +26,6 @@ def upload_file():
 def main_index():
     return flask.render_template('index.html')
 
-@app.route('/css/main.css')
-def main_css():
-    return flask.render_template('css/main.css')
-
 @app.route('/js/main.js')
 def main_js():
     return flask.render_template('js/main.js')
@@ -37,18 +33,17 @@ def main_js():
 @app.route('/uploader', methods=['GET', 'POST'])
 def uploader():
     if flask.request.method == 'POST':
-         print(flask.request)
-         f = flask.request.files['file']
-         runid = uuid.uuid1().int
-         if not os.path.exists("runs/"+str(runid)):
-             os.makedirs("runs/"+str(runid))
-             os.makedirs("runs/"+str(runid)+"/json")
-             os.makedirs("runs/"+str(runid)+"/frames")
-             os.makedirs("runs/"+str(runid)+"/overlayed")
-         else:
-             return flask.jsonify({"result" : "failed", "reason" : "RUNID Clash, try again soon"})
+        f = flask.request.files['file']
+        runid = uuid.uuid1().int
+        if not os.path.exists("runs/"+str(runid)):
+            os.makedirs("runs/"+str(runid))
+            os.makedirs("runs/"+str(runid)+"/json")
+            os.makedirs("runs/"+str(runid)+"/frames")
+            os.makedirs("runs/"+str(runid)+"/overlayed")
+        else:
+            return flask.jsonify({"result" : "failed", "reason" : "RUNID Clash, try again soon"})
 
-         f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
+        f.save('runs/{}/{}'.format(runid, "inputvideo.avi"))
 
     return flask.jsonify({"result": "success", "runid": str(runid)})
 

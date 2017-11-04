@@ -8,7 +8,7 @@ patient to understand the range of motion of their limbs around a joint.
 
 This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
-a stroke, or an accident.
+a stroke, a dislocation, a fracture or an accident.
 
 
 [![It waves back](https://youtu.be/6p6oaIISKdM/0.jpg)](https://youtu.be/6p6oaIISKdM "It waves back")

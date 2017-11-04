@@ -60,6 +60,19 @@ recordButton.onclick = toggleRecording;
 playButton.onclick = play;
 downloadButton.onclick = download;
 
+var runIdString = document.getElementById('runid');
+var processButton = document.querySelector('button#process');
+var viewButton = document.querySelector('button#view');
+var annotateButton = document.querySelector('button#annotate');
+var watchButton = document.querySelector('button#watch');
+var reportButton = document.querySelector('button#report');
+
+processButton.onclick = processLink;
+viewButton.onclick = viewLink;
+annotateButton.onclick = annotateLink;
+watchButton.onclick = watchLink;
+reportButton.onclick = reportLink;
+
 // window.isSecureContext could be used for Chrome
 var isSecureOrigin = location.protocol === 'https:' ||
 location.host === 'localhost';
@@ -199,3 +212,42 @@ function download() {
   }, 100);
 }
 
+function processLink() {
+  var runId = runIdString.value;
+  if (runId != "") {
+    var url = "http://localhost/process?runid="+runId;
+    window.open(url, '_blank');
+  }
+}
+
+function viewLink() {
+  var runId = runIdString.value;
+  if (runId != "") {
+    var url = "http://localhost/airom/playvideo?runid="+runId+"&fps=5";
+    window.open(url, '_blank');
+  }
+}
+
+function annotateLink() {
+  var runId = runIdString.value;
+  if (runId != "") {
+    var url = "http://localhost/airom/getoverlay?runid="+runId+"&joint=0";
+    window.open(url, '_blank');
+  }
+}
+
+function watchLink() {
+  var runId = runIdString.value;
+  if (runId != "") {
+    var url = "http://localhost/airom/playoverlay?runid="+runId+"&fps=5";
+    window.open(url, '_blank');
+  }
+}
+
+function reportLink() {
+  var runId = runIdString.value;
+  if (runId != "") {
+    var url = "http://localhost/airom/getreport?runid="+runId+"&report=elbow";
+    window.open(url, '_blank');
+  }
+}

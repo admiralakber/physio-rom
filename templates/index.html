@@ -42,6 +42,18 @@ limitations under the License.
       <button id="record" class="btn btn-primary">Start Recording</button> 
       <button id="play" class="btn btn-primary"disabled>Play</button>
       <button class="btn btn-primary" id="download" disabled>Download</button>
+      <form action = "/uploader" method = "POST"
+         enctype = "multipart/form-data" target="hiddentarget">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+      <iframe name="hiddentarget"></iframe>
+      Run ID: <input id="runid" type="text" name="runidname" value=""><br>
+      <button id="process">Process video</button>
+      <button id="view">View processed video</button>
+      <button id="annotate">Annotate processed video</button>
+      <button id="watch">Watch annotated video</button>
+      <button id="report">Generate report</button>
     </div>
   </div>
 
