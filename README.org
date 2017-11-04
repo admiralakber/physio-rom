@@ -4,6 +4,21 @@
 
 * Installation
 
+This package requires the installation and compilation of the opnepose software
+suite. This is detailed in the
+[[https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/doc][openpose
+documentation]].
+
+The dependencies for this pacakage are listed in requirements.txt.
+
+Auto-setup is set up via the python virtualenv. Install python virtualenv and run the
+following
+
+=make env=
+=. env/bin/activate=
+=make getreqs=
+=python __main__.py=
+
 * Usage
 
 * Third-party dependencies
@@ -13,7 +28,9 @@ project that have their own software licence include:
 
 | Software | Copyright | Licence | Link | Use              |
 | openpose | -         | LGPL    | -    | Pose detection   |
+| caffe    | -         | BSD     | -    | ML framework     |
 | numpy    | -         | BSD     | -    | Faster searching |
+| flask    | -         | BSD     | -    | web serving      |
 |          |           |         |      |                  |
 
 * Copyright and Licence
