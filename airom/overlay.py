@@ -13,28 +13,30 @@ import matplotlib.patches as patches
 import airom.camera
 import airom.process
 
+plt.rcParams["figure.figsize"]= (24,16)
+
 def OverlayAngles(runid, joint):
-    frames = airom.camera.LoadFrames(runid)
+    frames = airom.camera.GetFrameFileNames(runid)
     angles = airom.process.GetAllAngles(runid)
-    
+
     fig, ax = plt.subplots(1)
     for num, frame in enumerate(frames):
-        im = np.array(PIL.Image.fromarray(frame))
+        im = np.array(PIL.Image.open(frame),dtype=np.uint8)
         ax.imshow(im)
-        armlength = np.sum(np.abs(angles["v1s"][num]))*2/3
-        theta1 = np.rad2deg(np.arctan2(angles["v1s"][num][joint][1], angles["v1s"][joint][0]))
-        theta2 = np.rad2deg(np.arctan2(angles["v2s"][num][joint][1], angles["v2s"][joint][0]))
+        armlength = np.sum(np.abs(angles["v1s"][num]),axis=1)[joint]*2/3
+        theta2 = np.rad2deg(np.arctan2(angles["v1s"][num][joint][1], angles["v1s"][num][joint][0]))
+        theta1 = np.rad2deg(np.arctan2(angles["v2s"][num][joint][1], angles["v2s"][num][joint][0]))
+        ang_center = angles["pose_kps"][joint][3][0:2];
 
-        ax.text(angles["pose_kps"][num][joint][1][0] - 80, angles["pose_kps"][num][joint][1][1] - 10,
-                "%4.1f" % angles["angles"][0], color = 'w', fontweight = 'bold', fontsize = 24)
-
-        ax.add_patch(paches.Arc(angles["pose_kps"][joint][1], armlength, armlength, theta1=theta1, theta2=theta2, edgecolor='r', lw=3))
+        ax.text(ang_center[0],ang_center[1],"%4.1f°" % angles["angles"][num][joint],color='w',fontweight='bold',fontsize=38)
+        ax.add_patch(patches.Arc(ang_center, armlength, armlength, theta1=theta1, theta2=theta2, edgecolor='w', lw=8))
 
         # Hide axis
         plt.axis('off')
-        rundir = "/runs/{}/overlayed".format(runid)
-        plt.savefig(rundir+"/video_%s_overlayed.jpg")
-        
+        rundir = "runs/{}/overlayed/".format(runid)
+        plt.savefig(rundir+"video_%012d_overlayed.jpg" % num)
+        plt.cla()
+
 def overlayAngle(data,joint_ind,im_in,im_out):
     # data : output from getAnglesInDir
     # joint_ind : index to joint 

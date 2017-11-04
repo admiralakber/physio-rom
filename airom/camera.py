@@ -1,9 +1,13 @@
 import time
 import glob
 
-def LoadFrames(runid):
+def GetFrameFileNames(runid):
     frames = glob.glob("runs/{}/frames/*.jpg".format(runid))
     frames = sorted(frames, key = lambda x: int(x.split("/")[-1].split("_")[1]))
+    return frames
+
+def LoadFrames(runid):
+    frames = GetFrameFileNames(runid)
     frames = list(map(lambda x: open(x, 'rb').read(), frames))
     return frames
 
