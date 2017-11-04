@@ -11,15 +11,21 @@ documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/mas
 Auto-setup is set up via the python virtualenv. Install python virtualenv and run the
 following
 
-=make env=
-=. env/bin/activate=
-=make getreqs=
+```
+make env
+. env/bin/activate
+make getreqs
+```
 
 ## Usage
 
 Server Usage
 Start the flask server by running:
-=python __main__.py=
+
+```
+python __main__.py
+```
+
 The server side implementation has, thus far only been tested on unix systems. We
 cannot guarantee. Certain linux distros may require running the code in sudo, because 
 in-browser web camera streaming only functions in web ports (apparently security reasons)
