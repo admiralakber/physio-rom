@@ -12,7 +12,7 @@ a stroke, or an accident.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=6p6oaIISKdM
 " target="_blank"><img src="http://img.youtube.com/vi/6p6oaIISKdM/0.jpg" 
-alt="It Waves Back!" width="240" height="180" border="10" /></a
+alt="It Waves Back!" width="240" height="180" border="10" /></a>
 
 ## Installation
 
