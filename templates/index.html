@@ -29,36 +29,20 @@ limitations under the License.
 
   <base target="_blank">
 
-  <title>MediaStream Recording</title>
-
   <link rel="canonical" href="https://simpl.info/mediarecorder" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="css/main.css" />
 
 </head>
 
 <body>
 
-  <div id="container">
-
-    <h1><a href="../index.html" title="simpl.info home page">simpl.info</a> MediaStream&nbsp;Recording</h1>
-
-    <p>This demo requires Firefox 29 or later, or Chrome 47 or later with <strong>Enable experimental Web Platform features</strong> enabled from chrome://flags.</p>
-
-    <p>For more information see the MediaStream Recording API <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
-
-    <video id="gum" autoplay muted></video>
-    <video id="recorded" autoplay loop></video>
-
-    <div>
-      <button id="record">Start Recording</button>
-      <button id="play" disabled>Play</button>
-      <button id="download" disabled>Download</button>
-      <button id="upload" disabled>Upload</button>
+  <div class="embed-responsive-item" id="container">
+    <video style="height:350px" class="center" id="gum" autoplay muted></video>
+    <video style="height:350px" class="center" id="recorded" autoplay loop></video>
+    <div class="col-lg-12"> 
+      <button id="record" class="btn btn-primary">Start Recording</button> 
+      <button id="play" class="btn btn-primary"disabled>Play</button>
+      <button class="btn btn-primary" id="download" disabled>Download</button>
     </div>
-
-    <a href="https://github.com/samdutton/simpl/blob/gh-pages/mediarecorder" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
-
   </div>
 
   <script src="js/main.js"></script>
