@@ -40,6 +40,7 @@ Third-party dependencies that have been used or modified for this
 project that have their own software licence include:
 
 | Software | Copyright | Licence | Link | Use              |
+ ---------:|:---------:|:-------:|:----:|:----------------:|
 | openpose | -         | LGPL    | -    | Pose detection   |
 | caffe    | -         | BSD     | -    | ML framework     |
 | numpy    | -         | BSD     | -    | Faster searching |
