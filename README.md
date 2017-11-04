@@ -8,7 +8,7 @@ patient to understand the range of motion of their limbs around a joint.
 
 This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
-a stroke, a dislocation, a fracture or an accident.
+a stroke, or an accident.
 
 The project includes a fully-featured cloud-based API which wraps state-of-the-art 
 real-time keypoint dectection methods into an accessible and open-source platform.
@@ -60,23 +60,27 @@ in-browser web camera streaming only functions in web ports (apparently security
 ### API Workflow
 
 *Index Page:* Hosts a simple video capture framework, which includes a graphical interface to the API.
+
 ```
 <host>
 ```
 
-*Uploader:* Dedicated video update page, and post/get upload of video.
+*Uploader:* Dedicated video update page (GUI), and interface to CLI post/get upload of video.
+
 ```
 <host>/upload
 <host>/uploader
 ```
 
-Receives `runid` in JSON object
+The uploader returns a unique string called `runid` in JSON object. This is the your key to your data in the API. The uploaded videos are provcessed in ffmpeg and can be in any standard format.
+
 
 *Process video:*  Passes uploaded video to openPose and returns the features of intrest in json format.
 
 ```
-<host>/process?runid=<runid>`
+<host>/process?runid=<runid>
 ````
+
 
 *View video:* Shows a player which loops the uploaded video along with
 identified pose.
@@ -91,6 +95,9 @@ joint (where the number corresponds to a particular joint).
 ```
 localhost/airom/getoverlay?runid=<runid>&joint=<joint-label>
 ```
+Joints labelled by index in the following list:
+['Right elbow','Left elbow','Right Shoulder','Left Shoulder','Right Knee','Left Knee','Right Hip','Left Hip']
+
 
 *Watch Annotated video:* Shows a player which loopes the uploaded video with
 both identified pose and annotated angle.
@@ -120,7 +127,6 @@ project that have their own software licence include:
 | caffe    | -         | BSD     | -    | ML framework     |
 | numpy    | -         | BSD     | -    | Faster searching |
 | flask    | -         | BSD     | -    | web serving      |
-|          |           |         |      |                  |
 
 ## Copyright and Licence
 Copyright (C) 2017 Aqeel Akber and collaborators - All Rights Reserved
