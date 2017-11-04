@@ -34,7 +34,7 @@ def getJointROM_frames(data, joint_ind, num_frames):
 
 
 # ------------------------------ POSTPROCESS
-def cleanFloats(x): return str(round(x,1))
+def cleanFloats(x): return str(int(round(x,0)))
 
 def testing(data):
     with open("airom/report-templates/template-link.svg") as f:   
@@ -42,16 +42,13 @@ def testing(data):
     return strn
 
 def elbowJointROM(data):
-    with open("airom/report-templates/template-embed.svg") as f:   
+    with open("airom/report-templates/elbow-template.svg") as f:   
         strn = f.read()
     processed = getJointROM_frames(data, 0, 3)
-    strn = strn.replace("TemplateTitle", "Elbow Joint Range of Motion")
-    strn = strn.replace("MetricLabel1", "Minimum Range of Motion")
-    strn = strn.replace("MetricLabel2", "Maximum Range of Motion")
-    strn = strn.replace("MetricLabel3", "Confidence")
-    strn = strn.replace("Metric1", cleanFloats(processed['angles'][0]))
-    strn = strn.replace("Metric2", cleanFloats(processed['angles'][1]))
-    strn = strn.replace("Metric3", cleanFloats(processed['angles'][2]))
+    strn = strn.replace("testmin", cleanFloats(180-processed['angles'][0]))
+    strn = strn.replace("testmax", cleanFloats(processed['angles'][2]))
+    strn = strn.replace("testrom", cleanFloats(processed['angles'][2]-processed['angles'][0]))
+    strn = strn.replace("testconf", str(round((processed['angles_conf'][1]+processed['angles_conf'][2])/2.0,2)))
     # embed stages of the motion
     return strn
 
