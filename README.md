@@ -10,8 +10,9 @@ This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
 a stroke, or an accident.
 
-
-[![It waves back](https://youtu.be/6p6oaIISKdM/0.jpg)](https://youtu.be/6p6oaIISKdM "It waves back")
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=6p6oaIISKdM
+" target="_blank"><img src="http://img.youtube.com/vi/6p6oaIISKdM/0.jpg" 
+alt="It Waves Back!" width="240" height="180" border="10" /></a
 
 ## Installation
 
