@@ -9,7 +9,9 @@ patient to understand the range of motion of their limbs around a joint.
 This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
 a stroke, or an accident.
-<dd> </dd>
+
+<dd><iframe width="640" height="360" src="https://www.youtube.com/embed/6p6oaIISKdM" frameborder="0" gesture="media" allowfullscreen></iframe></dd>
+
 ## Installation
 
 The system consists of:
