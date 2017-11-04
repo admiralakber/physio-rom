@@ -78,7 +78,7 @@ def playvideo():
     camera = airom.camera.PlayRunID(runid, fps)
     return flask.Response(camera,
                           mimetype='multipart/x-mixed-replace; boundary=frame')
-    
+
 
 # ------------------------------ COMPUTING ANGLES
 
@@ -88,7 +88,7 @@ def getangle():
     framenum = int(flask.request.args.get('frame'))
     angle = airom.process.GetPoseAngle(runid, framenum)
     return flask.jsonify(airom.romutils.NumpyToList(angle))
-    
+
 # ------------------------------ REPORT GENERATOR
 
 @app.route("/airom/getreport", methods=['GET'])
@@ -96,6 +96,24 @@ def getreport():
     runid = flask.request.args.get('runid')
     report = flask.request.args.get('report')
     return flask.Response(airom.postprocess.postproc(airom.process.GetAllAngles(runid), report))
+
+# ------------------------------ OVERLAY
+
+@app.route('/airom/getoverlay', methods=['GET'])
+def getoverlay():
+    runid = flask.request.args.get('runid')
+    joint = int(flask.request.args.get('joint'))
+    airom.overlay.OverlayAngles(runid,joint)
+    return flask.jsonify({"result": "process finished"})
+
+
+@app.route('/airom/playoverlay', methods=['GET'])
+def playvideo_overlay():
+    runid = flask.request.args.get('runid')
+    fps = int(flask.request.args.get('fps'))
+    camera = airom.camera.PlayRunIDOverlayed(runid, fps)
+    return flask.Response(camera,
+                          mimetype='multipart/x-mixed-replace; boundary=frame')
 
 # ------------------------------ RUN THE API
 

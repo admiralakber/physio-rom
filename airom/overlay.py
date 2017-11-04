@@ -26,7 +26,7 @@ def OverlayAngles(runid, joint):
         armlength = np.sum(np.abs(angles["v1s"][num]),axis=1)[joint]*2/3
         theta2 = np.rad2deg(np.arctan2(angles["v1s"][num][joint][1], angles["v1s"][num][joint][0]))
         theta1 = np.rad2deg(np.arctan2(angles["v2s"][num][joint][1], angles["v2s"][num][joint][0]))
-        ang_center = angles["pose_kps"][joint][3][0:2];
+        ang_center = angles["pose_kps"][num][joint+3][0:2];
 
         ax.text(ang_center[0],ang_center[1],"%4.1f°" % angles["angles"][num][joint],color='w',fontweight='bold',fontsize=38)
         ax.add_patch(patches.Arc(ang_center, armlength, armlength, theta1=theta1, theta2=theta2, edgecolor='w', lw=8))
