@@ -1,4 +1,4 @@
-#TITLE: Physio-ROM: Computer vision, AI Range of Motion Reports
+# Physio-ROM: Computer vision, AI Range of Motion Reports
 
 ## What is Physio ROM
 
@@ -22,7 +22,7 @@ on the limbs from the pre-processed video,
 
 The Web front end through which the video is captured can be found in the templates directory.
 
-The python based backend system is run via the __main__.py python program.
+The python based backend system is run via the ```__main__.py``` python program.
 Auto-setup is set up via the python virtualenv. Install python virtualenv and run the
 following
 
