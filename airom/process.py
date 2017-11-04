@@ -56,7 +56,7 @@ def GetAllAngles(runid):
             "confidence": confidence,
             "v1s" : v1s,
             "v2s" : v2s,
-            "pose_kps" : pose_kps}
+            "pose_kps" : posekps}
 
 def GetFrameAngles(posejson, frame = 0):
     # Calculates joint angles, confidence intervals, cross-prodcut sign etc.
