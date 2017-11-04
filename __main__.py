@@ -22,9 +22,22 @@ def upload_file():
     return flask.render_template('upload.html')
 
 
+@app.route('/index.html')
+def main_index():
+    return flask.render_template('index.html')
+
+@app.route('/css/main.css')
+def main_css():
+    return flask.render_template('css/main.css')
+
+@app.route('/js/main.js')
+def main_js():
+    return flask.render_template('js/main.js')
+
 @app.route('/uploader', methods=['GET', 'POST'])
 def uploader():
     if flask.request.method == 'POST':
+         print(flask.request)
          f = flask.request.files['file']
          runid = uuid.uuid1().int
          if not os.path.exists("runs/"+str(runid)):
@@ -87,5 +100,5 @@ def getreport():
 # ------------------------------ RUN THE API
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080, threaded=True, debug=True)
+    app.run(host="0.0.0.0", port=80, threaded=True, debug=True)
 
