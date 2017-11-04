@@ -9,7 +9,7 @@ def OpenPose(runid, computedir="openpose"):
     outputvid = rundir+'outputvideo.avi'
 
     # transcode
-    subprocess.run(["ffmpeg", "-y", "-i", inputvid, "-qscale:v", "2", transcodedvid])
+    subprocess.run(["ffmpeg", "-y", "-i", inputvid, "-qscale:v", "2","-r", "6", transcodedvid])
 
     # openpose command
     openpose = ["./build/examples/openpose/openpose.bin",
@@ -19,6 +19,11 @@ def OpenPose(runid, computedir="openpose"):
                 "--write_images_format \"jpg\"",
                 "--write_images {}/{}".format(rundir, "frames"),
                 "--write_keypoint_json {}/{}".format(rundir, "json")]
+
+    # Options for high-precision
+    #            "--net_resolution ","1312x736",
+    #            "--scale_number ","2",
+    #            "--scale_gap", "0.25",
 
     # Run on compute node Mahasen
     subprocess.run(" ".join(openpose), shell = True, cwd = computedir)
