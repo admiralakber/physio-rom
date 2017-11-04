@@ -86,14 +86,14 @@ The uploader returns a unique string called `runid` in JSON object. This is the 
 identified pose.
 
 ```
-localhost/airom/playvideo?runid=<runid>&fps=<view-framerate>
+<host>/airom/playvideo?runid=<runid>&fps=<view-framerate>
 ```
 
 *Annotate video:* Annotates the previous video with the angle of the specified
 joint (where the number corresponds to a particular joint).
 
 ```
-localhost/airom/getoverlay?runid=<runid>&joint=<joint-label>
+<host>/airom/getoverlay?runid=<runid>&joint=<joint-label>
 ```
 Joints labelled by index in the following list:
 ['Right elbow','Left elbow','Right Shoulder','Left Shoulder','Right Knee','Left Knee','Right Hip','Left Hip']
@@ -103,13 +103,13 @@ Joints labelled by index in the following list:
 both identified pose and annotated angle.
 
 ```
-localhost/airom/playoverlay?runid=<runid>&fps=<view-framerate>
+<host>/airom/playoverlay?runid=<runid>&fps=<view-framerate>
 ```
 
 *Generate report:* Generate a report for a given joint
 
 ```
-localhost/airom/getreport?runid=<runid>&report=<report-template>
+<host>/airom/getreport?runid=<runid>&report=<report-template>
 ```
 
 ### Futher API Tools
