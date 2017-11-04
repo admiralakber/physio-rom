@@ -114,6 +114,15 @@ both identified pose and annotated angle.
 
 ### Futher API Tools
 
+```
+<host>/airom/getframe?runid=<runid>&framenum=<frame-index>
+```
+
+```
+<host>/airom/getname?runid=<runid>&framenum=<frame-index>
+```
+
+
 Further detailed usage information is included in the doc/ folder.
 
 ## Third-party dependencies
