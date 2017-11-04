@@ -117,11 +117,12 @@ both identified pose and annotated angle.
 ```
 <host>/airom/getframe?runid=<runid>&framenum=<frame-index>
 ```
+Gets frame at index.
 
 ```
 <host>/airom/getname?runid=<runid>&framenum=<frame-index>
 ```
-
+Gets frame by name.
 
 Further detailed usage information is included in the doc/ folder.
 
