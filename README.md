@@ -58,34 +58,41 @@ cannot guarantee. Certain linux distros may require running the code in sudo, be
 in-browser web camera streaming only functions in web ports (apparently security reasons)
 
 ### API Usage
+```
 <host>
 <host>/upload
+```
 Receives `runid` in JSON object
 
 *Process video:*  Passes uploaded video to openPose and returns the features of intrest in json format.
+
 ```
 localhost/process?runid=<runid>`
 ````
 
 *View video:* Shows a player which loops the uploaded video along with
 identified pose.
+
 ```
 localhost/airom/playvideo?runid=<runid>&fps=<view-framerate>
 ```
 
 *Annotate video:* Annotates the previous video with the angle of the specified
 joint (where the number corresponds to a particular joint).
+
 ```
 localhost/airom/getoverlay?runid=<runid>&joint=<joint-label>
 ```
 
 *Watch Annotated video:* Shows a player which loopes the uploaded video with
 both identified pose and annotated angle.
+
 ```
 localhost/airom/playoverlay?runid=<runid>&fps=<view-framerate>
 ```
 
 *Generate report:* Generate a report for a given joint
+
 ```
 localhost/airom/getreport?runid=<runid>&report=<report-template>
 ```
