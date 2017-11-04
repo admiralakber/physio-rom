@@ -2,14 +2,14 @@
 
 ## What is Physio ROM
 
-Physio ROM stands for "Automated Range of Motion (ROM) calculation for Physiotherapists" and is an application that helps physiotherapists and
-their patient to understand the range of motion of their limbs around a
-joint.
+Physio ROM stands for "Automated Range of Motion (ROM) calculation for
+Physiotherapists" and is an application that helps physiotherapists and their
+patient to understand the range of motion of their limbs around a joint.
 
 This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
 a stroke, or an accident.
-
+<dd> </dd>
 ## Installation
 
 The system consists of:
@@ -32,12 +32,14 @@ make env
 make getreqs
 ```
 
-The C++ based computer vision system requires the installation and compilation of the
-openpose software suite. This is detailed in the [openpose documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/doc). The dependencies for this package are listed in requirements.txt.
+The C++ based computer vision system requires the installation and compilation
+of the openpose software suite. This is detailed in the [openpose
+documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/doc).
+The dependencies for this package are listed in requirements.txt.
 
 ## Usage
 
-Server Usage
+### Server Usage
 Start the flask server by running:
 
 ```
