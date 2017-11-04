@@ -57,17 +57,25 @@ The server side implementation has, thus far only been tested on unix systems. W
 cannot guarantee. Certain linux distros may require running the code in sudo, because 
 in-browser web camera streaming only functions in web ports (apparently security reasons)
 
-### API Usage
+### API Workflow
+
+*Index Page:* Hosts a simple video capture framework, which includes a graphical interface to the API.
 ```
 <host>
-<host>/upload
 ```
+
+*Uploader:* Dedicated video update page, and post/get upload of video.
+```
+<host>/upload
+<host>/uploader
+```
+
 Receives `runid` in JSON object
 
 *Process video:*  Passes uploaded video to openPose and returns the features of intrest in json format.
 
 ```
-localhost/process?runid=<runid>`
+<host>/process?runid=<runid>`
 ````
 
 *View video:* Shows a player which loops the uploaded video along with
@@ -96,6 +104,8 @@ localhost/airom/playoverlay?runid=<runid>&fps=<view-framerate>
 ```
 localhost/airom/getreport?runid=<runid>&report=<report-template>
 ```
+
+### Futher API Tools
 
 Further detailed usage information is included in the doc/ folder.
 
