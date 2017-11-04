@@ -2,12 +2,27 @@
 
 ## What is Physio ROM
 
+Physio ROM stands for "Automated Range of Motion (ROM) calculation for Physiotherapists" and is an application that helps physiotherapists and
+their patient to understand the range of motion of their limbs around a
+joint.
+
+This is important for people that have hurt their joints or for some other
+reason and cannot use their limbs to the full extent, such as after a fall,
+a stroke, or an accident.
+
 ## Installation
 
-This package requires the installation and compilation of the openpose software
-suite. This is detailed in the [openpose
-documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/doc). The dependencies for this package are listed in requirements.txt.
+The system consists of:
+1. a Web front-end that captures the video,
+2. a python based backend system to where the video is uploaded and pre-processed,
+3. a C++ based computer vision system that calculates the limbs and the angles
+on the limbs from the pre-processed video,
+4. a Web service that serves a JSON file with the results
+5. a Web page that serves the video with the results rendered and overlayed on top of the video.
 
+The Web front end through which the video is captured can be found in the templates directory.
+
+The python based backend system is run via the __main__.py python program.
 Auto-setup is set up via the python virtualenv. Install python virtualenv and run the
 following
 
@@ -16,6 +31,9 @@ make env
 . env/bin/activate
 make getreqs
 ```
+
+The C++ based computer vision system requires the installation and compilation of the
+openpose software suite. This is detailed in the [openpose documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/doc). The dependencies for this package are listed in requirements.txt.
 
 ## Usage
 
