@@ -31,6 +31,7 @@ def uploader():
              os.makedirs("runs/"+str(runid))
              os.makedirs("runs/"+str(runid)+"/json")
              os.makedirs("runs/"+str(runid)+"/frames")
+             os.makedirs("runs/"+str(runid)+"/overlayed")
          else:
              return flask.jsonify({"result" : "failed", "reason" : "RUNID Clash, try again soon"})
 
