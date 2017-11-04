@@ -8,7 +8,7 @@ patient to understand the range of motion of their limbs around a joint.
 
 This is important for people that have hurt their joints or for some other
 reason and cannot use their limbs to the full extent, such as after a fall,
-a stroke, or an accident.
+a stroke, a dislocation, a fracture or an accident.
 
 The project includes a fully-featured cloud-based API which wraps state-of-the-art 
 real-time keypoint dectection methods into an accessible and open-source platform.
