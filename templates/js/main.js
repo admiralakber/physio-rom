@@ -215,7 +215,7 @@ function download() {
 function processLink() {
   var runId = runIdString.value;
   if (runId != "") {
-    var url = "http://localhost/process?runid="+runId;
+    var url = "process?runid="+runId;
     window.open(url, '_blank');
   }
 }
@@ -223,7 +223,7 @@ function processLink() {
 function viewLink() {
   var runId = runIdString.value;
   if (runId != "") {
-    var url = "http://localhost/airom/playvideo?runid="+runId+"&fps=5";
+    var url = "airom/playvideo?runid="+runId+"&fps=5";
     window.open(url, '_blank');
   }
 }
@@ -231,7 +231,7 @@ function viewLink() {
 function annotateLink() {
   var runId = runIdString.value;
   if (runId != "") {
-    var url = "http://localhost/airom/getoverlay?runid="+runId+"&joint=0";
+    var url = "airom/getoverlay?runid="+runId+"&joint=0";
     window.open(url, '_blank');
   }
 }
@@ -239,7 +239,7 @@ function annotateLink() {
 function watchLink() {
   var runId = runIdString.value;
   if (runId != "") {
-    var url = "http://localhost/airom/playoverlay?runid="+runId+"&fps=5";
+    var url = "airom/playoverlay?runid="+runId+"&fps=5";
     window.open(url, '_blank');
   }
 }
@@ -247,7 +247,7 @@ function watchLink() {
 function reportLink() {
   var runId = runIdString.value;
   if (runId != "") {
-    var url = "http://localhost/airom/getreport?runid="+runId+"&report=elbow";
+    var url = "airom/getreport?runid="+runId+"&report=elbow";
     window.open(url, '_blank');
   }
 }

@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use("Agg")
+
 import flask
 import werkzeug.utils
 import uuid
@@ -13,7 +16,7 @@ app = flask.Flask(__name__)
 
 @app.route("/")
 def main():
-    return flask.Response("Welcome... TO AI ROM")
+    return flask.render_template('index.html')
 
 # ------------------------------ UPLOADER
 
@@ -53,7 +56,7 @@ def uploader():
 def process():
     # I am the stack.
     runid = flask.request.args.get('runid')
-    airom.video.OpenPose(runid, computedir = "/home/mahasen/lib/openpose")
+    airom.video.OpenPose(runid, computedir = "/ubuntu/physio-rom/openpose")
     return flask.jsonify({"result": "process finished"})
 
 # ------------------------------ VIDEO / IMAGING
