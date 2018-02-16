@@ -76,7 +76,7 @@ def GetFrameAngles(posejson, frame = 0):
 
     # Define Joints
     joint_labels=['Right elbow','Left elbow','Right Shoulder','Left Shoulder','Right Knee','Left Knee','Right Hip','Left Hip']
-    joints  = [[2,3,4],[5,6,7],[3,2,5],[6,5,2],[8,9,10],[11,12,13],[11,8,9],[8,11,12]]
+    joints  = [[2,3,4],[5,6,7],[3,2,1],[6,5,1],[8,9,10],[11,12,13],[11,8,9],[8,11,12]]
 
     # Get array of 3x3 arrays of points from pose_kp corresponding to each joint
     pose_kp_joints = np.array([pose_kp[i,0:2] for i in joints])
