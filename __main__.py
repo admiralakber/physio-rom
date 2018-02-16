@@ -56,7 +56,7 @@ def uploader():
 def process():
     # I am the stack.
     runid = flask.request.args.get('runid')
-    airom.video.OpenPose(runid, computedir = "/ubuntu/physio-rom/openpose")
+    airom.video.OpenPose(runid, computedir = "/home/physio-rom/openpose")
     return flask.jsonify({"result": "process finished"})
 
 # ------------------------------ VIDEO / IMAGING
