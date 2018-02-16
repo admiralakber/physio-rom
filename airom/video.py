@@ -13,7 +13,8 @@ def OpenPose(runid, computedir="openpose"):
 
     # openpose command
     openpose = ["./build/examples/openpose/openpose.bin",
-                "-display=0",
+                "-display=0 ",
+                "-number_people_max=1 "
                 "--video {}".format(transcodedvid),
                 "--write_video {}".format(outputvid),
                 "--write_images_format \"jpg\"",
