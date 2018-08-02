@@ -133,7 +133,7 @@ project that have their own software licence include:
 
 | Software | Copyright | Licence | Link | Use              |
  ---------:|:---------:|:-------:|:----:|:----------------:|
-| openpose | -         | LGPL    | -    | Pose detection   |
+| openpose | -         | See Repo| -    | Pose detection   |
 | caffe    | -         | BSD     | -    | ML framework     |
 | numpy    | -         | BSD     | -    | Faster searching |
 | flask    | -         | BSD     | -    | web serving      |
